@@ -105,6 +105,19 @@ onMounted(() => {
           <img src="./assets/ScissorsIcon.svg" alt="Scissors" class="w-full" />
         </button>
       </div>
+      <div v-else>
+        <div class="text-3xl mb-4">
+          You picked <span class="text-pink-500">{{ choice }}</span>
+        </div>
+        <div class="text-3xl mb-4">
+          The computed picked <span class="text-green-500">{{ computerChoice }}</span>
+        </div>
+        <div class="text-6xl mb-12">
+          {{ verdict }}
+        </div>
+
+        <button @click="ResetRound" class="bg-pink-500 text-lg py-2 px-4">Reset</button>
+      </div>
     </main>
   </div>
 </template>

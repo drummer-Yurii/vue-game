@@ -61,9 +61,9 @@ const SaveGame = () => {
 };
 
 const LoadGame = () => {
-  wins.value = localStorage.getItem('wins')
-  draws.value = localStorage.getItem('draws')
-  losses.value = localStorage.getItem('losses')
+  wins.value = parseInt(localStorage.getItem('wins')) || 0
+  draws.value = parseInt(localStorage.getItem('draws')) || 0
+  losses.value = parseInt(localStorage.getItem('losses')) || 0
 };
 
 const ResetRound = () => {
@@ -117,6 +117,14 @@ onMounted(() => {
         </div>
 
         <button @click="ResetRound" class="bg-pink-500 text-lg py-2 px-4">Reset</button>
+      </div>
+
+      <div class="mt-12 text-3xl mb-4">
+        {{ wins }} : {{ draws }} : {{ losses }}
+      </div>
+
+      <div class="text-lg">
+        Win rate: {{ Math.round(winPercentage) }}%
       </div>
     </main>
   </div>
